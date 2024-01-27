@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.19.0">
+  <bpmn:process id="my-camunda-learning-process" name="camunda-learning" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1" name="someone started a trip">
+      <bpmn:outgoing>Flow_1x1u72o</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_1jjk7go" name="get a taxi" camunda:formRef="getTaxi.form" camunda:formRefBinding="latest">
+      <bpmn:incoming>Flow_1gqsf0q</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ov14mz</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0kc6lr6" name="over through the monarchy">
+      <bpmn:incoming>Flow_0ov14mz</bpmn:incoming>
+      <bpmn:outgoing>Flow_04wyhje</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0ov14mz" sourceRef="Activity_1jjk7go" targetRef="Activity_0kc6lr6" />
+    <bpmn:endEvent id="Event_0s42i0w" name="someone enjoyed trip">
+      <bpmn:incoming>Flow_04wyhje</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_04wyhje" sourceRef="Activity_0kc6lr6" targetRef="Event_0s42i0w" />
+    <bpmn:userTask id="Activity_1r2ksw8" name="prepare for departure" camunda:formRef="/preparefordeparture.form" camunda:formRefBinding="deployment">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_1x1u72o</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gqsf0q</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1x1u72o" sourceRef="StartEvent_1" targetRef="Activity_1r2ksw8" />
+    <bpmn:sequenceFlow id="Flow_1gqsf0q" sourceRef="Activity_1r2ksw8" targetRef="Activity_1jjk7go" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="my-camunda-learning-process">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="156" y="142" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jjk7go_di" bpmnElement="Activity_1jjk7go">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kc6lr6_di" bpmnElement="Activity_0kc6lr6">
+        <dc:Bounds x="590" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0s42i0w_di" bpmnElement="Event_0s42i0w">
+        <dc:Bounds x="752" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="726" y="142" width="88" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1r2ksw8_di" bpmnElement="Activity_1r2ksw8">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0ov14mz_di" bpmnElement="Flow_0ov14mz">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="590" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04wyhje_di" bpmnElement="Flow_04wyhje">
+        <di:waypoint x="690" y="117" />
+        <di:waypoint x="752" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x1u72o_di" bpmnElement="Flow_1x1u72o">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gqsf0q_di" bpmnElement="Flow_1gqsf0q">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
